@@ -1,4 +1,6 @@
 @use "../base/variables" as *;
+@use "../utils/placeholders" as *;
+@use "../utils/mixins" as *;
 
 .header {
     width: 100%;
@@ -9,19 +11,15 @@
 
 
     &__container {
-        display: flex;
-        justify-content: center;
+        @extend %flex-box;
         align-items: center;
     }
 
     &__logo {
-        display: flex;
-        justify-content: center;
+        @extend %flex-box;
         align-items: center;
-        gap: 20px;
         color: $accent-color;
-        font-size: 40px;
-        font-weight: 700;
+        @include font($size: 40px);
         text-decoration: none;
     }
 

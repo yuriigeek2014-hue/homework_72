@@ -1,0 +1,16 @@
+@mixin font($size) {
+    font-size: $size;
+    font-weight: 700;
+}
+
+@mixin flex($gap, $justify, $flex) {
+    display: $flex;
+    justify-content: $justify;
+    gap: $gap;
+}
+
+@mixin margin($bottom, $margin, $padding) {
+    margin: $margin;
+    padding: $padding;
+}
+

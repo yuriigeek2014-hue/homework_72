@@ -1,4 +1,6 @@
 @use "../base/variables" as *;
+@use "../utils/mixins"as *;
+@use "../utils/placeholders"as *;
 
 .card {
     padding-top: 50px;
@@ -9,26 +11,24 @@
         color: $main-color;
         text-align: center;
         margin-bottom: 30px;
+        @include margin($bottom: 30px, $margin: 30px, $padding: 0);
+        @include font($size: 30px);
     }
 
     &__list {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        @extend %flex-box;
+        @include flex($gap: 40px, $justify: center, $flex: flex);
     }
 
     &__card {
         position: relative;
         width: 400px;
-        padding: 35px;
         background-color: $main-color;
         border-radius: 12px;
         text-align: center;
         box-sizing: border-box;
         transition: 500ms;
+        @include margin($bottom: 0, $margin: 0, $padding: 35px);
     }
 
     &__card:hover {
@@ -45,19 +45,18 @@
         height: 300px;
         object-fit: cover;
         border-radius: 8px;
-        margin-bottom: 10px;
+        @include margin($bottom: 10px, $margin: 0, $padding: 0);
     }
 
     &__position {
         color: $accent-color;
-        font-weight: 700;
-        font-size: 18px;
+        @include font($size: 18px);
     }
 
     &__subtitle {
         margin: 10px 0;
-        font-size: 26px;
-        font-weight: 700;
+        @include font($size: 26px);
+        
     }
 
     &__text {
@@ -65,41 +64,42 @@
         line-height: 1.5;
         width: 300px;
         max-width: 100%;
-        margin: 0 auto 10px;
+        font-size: 18px;
+        font-weight: 500;
+        @include margin($bottom: 0, $margin: 0 auto 10px, $padding: 0);
     }
 
     &__rating {
-        font-size: 28px;
-        font-weight: 700;
         color: $accent-color;
-        margin-bottom: 10px;
+        @include margin($bottom: 10px, $margin: 0, $padding: 0);
+        @include font($size: 26px);
     }
 
     &__btn {
         width: 100%;
-        padding: 15px;
         border: none;
         border-radius: 10px;
         background-color: $accent-color;
         color: $main-color;
         cursor: pointer;
-        font-size: 18px;
+        @include font($size: 18px);
+        @include margin($bottom: 0, $margin: 0, $padding: 15px);
     }
 
     &__btn:hover {
-        background-color: $accent-color;
+        background-color: $symbol-color;
+        transition-duration: 750ms;
     }
 
     &__badge {
         position: absolute;
         top: 10px;
         right: 10px;
-        padding: 5px 10px;
         background-color: $symbol-color;
         color: $main-color;
         border-radius: 20px;
-        font-size: 12px;
-        font-weight: 700;
+        @include font($size: 16px);
+        @include margin($bottom: 0, $margin: 0, $padding: 5px 10px);
     }
 
 }

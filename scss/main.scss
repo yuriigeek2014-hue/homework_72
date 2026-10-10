@@ -2,6 +2,8 @@
 @use "./base/container";
 @use "./base/variables";
 @use "./base/common";
+@use "./utils/mixins";
+@use "./utils/placeholders";
 @use "./section/header";
 @use "./section/card";
 @use "./section/footer";
