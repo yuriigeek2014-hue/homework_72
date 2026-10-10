@@ -1,0 +1,15 @@
+@use "../base/variables" as *;
+
+.footer {
+    padding: 30px;
+    background-color: $main-color;
+    color: $accent-color;
+    text-align: center;
+
+
+    &__text {
+        margin: 0;
+        font-size: 20px;
+    }
+
+}

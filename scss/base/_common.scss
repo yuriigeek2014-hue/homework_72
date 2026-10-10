@@ -1,0 +1,6 @@
+@use "../base/variables" as *;
+
+body {
+    font-family: ClarityCity;
+    background-color: $accent-color;
+}
