@@ -4,15 +4,18 @@
 
 .header {
     width: 100%;
-    padding: 50px 20px;
     background-color: $main-color;
-    border-radius: 0 0 75px 75px;
-    box-sizing: border-box;
-
+    border-radius: 0 0 50px 50px;
+    padding-bottom: 30px;
 
     &__container {
         @extend %flex-box;
         align-items: center;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: center;
+        }
     }
 
     &__logo {
@@ -21,6 +24,10 @@
         color: $accent-color;
         @include font($size: 40px);
         text-decoration: none;
+
+        @media (min-width: 768px) {
+            @include font($size: 36px);
+        }
     }
 
     &__img {
@@ -28,5 +35,4 @@
         height: 40px;
         object-fit: contain;
     }
-
 }

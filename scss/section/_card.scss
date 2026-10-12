@@ -1,51 +1,106 @@
 @use "../base/variables" as *;
-@use "../utils/mixins"as *;
-@use "../utils/placeholders"as *;
+@use "../utils/mixins" as *;
+@use "../utils/placeholders" as *;
 
 .card {
-    padding-top: 50px;
-    padding-bottom: 90px;
+    padding-top: 40px;
+    padding-bottom: 70px;
 
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 
     &__title {
         color: $main-color;
         text-align: center;
-        margin-bottom: 30px;
-        @include margin($bottom: 30px, $margin: 30px, $padding: 0);
-        @include font($size: 30px);
+        @include font($size: 22px);
+        @include margin($bottom: 25px, $margin: 0 0 25px, $padding: 0);
+
+        @media (min-width: 768px) {
+            @include font($size: 25px);
+            @include margin($bottom: 20px, $margin: 20px, $padding: 0);
+        }
+
+        @media (min-width: 1200px) {
+            @include font($size: 30px);
+            @include margin($bottom: 30px, $margin: 30px, $padding: 0);
+        }
     }
 
     &__list {
-        @extend %flex-box;
-        @include flex($gap: 40px, $justify: center, $flex: flex);
+        display: grid;
+        grid-template-columns: minmax(0, 280px);
+        justify-content: center;
+        gap: 25px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 280px));
+            gap: 25px;
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 40px;
+        }
     }
 
     &__card {
         position: relative;
-        width: 400px;
-        background-color: $main-color;
+        width: 100%;
+        max-width: 270px;
+        padding: 7px;
+        background-color: #fff;
         border-radius: 12px;
         text-align: center;
-        box-sizing: border-box;
-        transition: 500ms;
-        @include margin($bottom: 0, $margin: 0, $padding: 35px);
-    }
+        transition: 300ms;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    &__card:hover {
-        box-shadow:
-            0 5px 10px 0 rgba(0, 0, 0, 0.12),
-            0 5px 3px 0 rgba(0, 0, 0, 0.14),
-            0 2px 1px 0 rgba(0, 0, 0, 0.20);
-        transform: translateY(-8px);
+        &:hover {
+            box-shadow:
+                0 5px 10px 0 rgba(0, 0, 0, 0.12),
+                0 5px 3px 0 rgba(0, 0, 0, 0.14),
+                0 2px 1px 0 rgba(0, 0, 0, 0.20);
+            transform: translateY(-8px);
+
+
+            @media (min-width: 768px) {
+            max-width: 280px;
+            padding: 8px;
+        }
+        }
+
+        &--popular {
+            border: 3px solid $symbol-color;
+        }
+
+        @media (min-width: 1200px) {
+            max-width: none;
+            padding: 10px;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
-        height: 300px;
+        max-width: 250px;
+        height: 250px;
         object-fit: cover;
         border-radius: 8px;
         @include margin($bottom: 10px, $margin: 0, $padding: 0);
+
+        @media (min-width: 768px) {
+            height: 250px;
+        }
+
+        @media (min-width: 1200px) {
+            height: 250px;
+        }
     }
 
     &__position {
@@ -56,7 +111,6 @@
     &__subtitle {
         margin: 10px 0;
         @include font($size: 26px);
-        
     }
 
     &__text {
@@ -84,11 +138,16 @@
         cursor: pointer;
         @include font($size: 18px);
         @include margin($bottom: 0, $margin: 0, $padding: 15px);
-    }
 
-    &__btn:hover {
-        background-color: $symbol-color;
-        transition-duration: 750ms;
+        &:hover {
+            background-color: $symbol-color;
+            transition-duration: 750ms;
+        }
+
+        @media (min-width: 768px) {
+            width: auto;
+            min-width: 160px;
+        }
     }
 
     &__badge {
@@ -101,5 +160,4 @@
         @include font($size: 16px);
         @include margin($bottom: 0, $margin: 0, $padding: 5px 10px);
     }
-
 }

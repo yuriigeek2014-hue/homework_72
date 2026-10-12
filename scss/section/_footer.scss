@@ -1,15 +1,30 @@
 @use "../base/variables" as *;
 
 .footer {
-    padding: 30px;
+    padding: 20px 10px;
     background-color: $main-color;
     color: $accent-color;
     text-align: center;
 
+    @media (min-width: 768px) {
+        padding: 25px 15px;
+    }
+
+    @media (min-width: 1200px) {
+        padding: 30px;
+    }
 
     &__text {
         margin: 0;
-        font-size: 20px;
-    }
+        font-size: 14px;
+        line-height: 1.5;
 
+        @media (min-width: 768px) {
+            font-size: 16px;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 20px;
+        }
+    }
 }
